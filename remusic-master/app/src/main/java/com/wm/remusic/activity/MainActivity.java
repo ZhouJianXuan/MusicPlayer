@@ -50,12 +50,13 @@ public class MainActivity extends BaseActivity implements CardPickerDialog.Click
 
     public void onCreate(Bundle savedInstanceState) {
         splashScreen = new SplashScreen(this);
-        splashScreen.show(R.drawable.art_login_bg,
-                SplashScreen.SLIDE_LEFT);
+        splashScreen.show(R.drawable.logo_2, SplashScreen.SLIDE_LEFT);//一进入APP先是一幅图片（引导图片）
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         getWindow().setBackgroundDrawableResource(R.color.background_material_light_1);
 
+        //折行顺序
         barnet = (ImageView) findViewById(R.id.bar_net);
         barmusic = (ImageView) findViewById(R.id.bar_music);
         barfriends = (ImageView) findViewById(R.id.bar_friends);

@@ -13,7 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.wm.remusic.R;
-import com.wm.remusic.activity.MainActivity;
 import com.wm.remusic.uitl.PermissionHelper;
 
 import net.youmi.android.AdManager;
@@ -87,8 +86,23 @@ public class SplashActivity extends Activity {
 		//初始化SDK
 		AdManager.getInstance(mContext).init("9ca9f88752601ff9", "c91f620182e46bad", false, true);
 		//设置开屏
-		setupSplashAd();
+//		setupSplashAd();
+		startMain();
+
 	}
+
+
+
+
+	/**
+	 * 跳开广告
+	 */
+	private void startMain(){
+		SplashViewSettings splashViewSettings = new SplashViewSettings();
+		splashViewSettings.setTargetClass(MainActivity.class);
+	}
+
+
 
 	/**
 	 * 设置开屏广告

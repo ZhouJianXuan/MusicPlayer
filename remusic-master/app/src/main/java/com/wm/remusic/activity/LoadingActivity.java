@@ -14,7 +14,7 @@ import com.wm.remusic.R;
 public class LoadingActivity extends Activity {
 
     //延迟3秒
-    private static final long SPLASH_DELAY_MILLIS = 1600;
+    private static final long SPLASH_DELAY_MILLIS = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
