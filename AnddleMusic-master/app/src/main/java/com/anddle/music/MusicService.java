@@ -21,6 +21,7 @@ import java.util.List;
 
 public class MusicService extends Service {
 
+
     public interface OnStateChangeListenr {
 
         void onPlayProgressChange(MusicItem item);
@@ -346,6 +347,7 @@ public class MusicService extends Service {
             }
 
             mMusicPlayer.start();
+
             seekToInner((int)item.playedTime);
             for(OnStateChangeListenr l : mListenerList) {
                 l.onPlay(item);

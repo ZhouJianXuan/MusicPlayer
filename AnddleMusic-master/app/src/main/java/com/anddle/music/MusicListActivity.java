@@ -23,6 +23,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -42,6 +43,7 @@ public class MusicListActivity extends AppCompatActivity {
     private TextView mPlayedTime;
     private TextView mDurationTime;
     private SeekBar mMusicSeekBar;
+    private ImageView mImageView;
     private MusicUpdateTask mMusicUpdateTask;
 
     @Override
@@ -63,7 +65,7 @@ public class MusicListActivity extends AppCompatActivity {
         mNextBtn = (Button) findViewById(R.id.next_btn);
 
         mMusicTitle = (TextView) findViewById(R.id.music_title);
-
+        mImageView = (ImageView) findViewById(R.id.image_thumb);
         mDurationTime = (TextView) findViewById(R.id.duration_time);
         mPlayedTime = (TextView) findViewById(R.id.played_time);
         mMusicSeekBar = (SeekBar) findViewById(R.id.seek_music);
@@ -184,6 +186,7 @@ public class MusicListActivity extends AppCompatActivity {
         mMusicSeekBar.setEnabled(enabled);
     }
 
+    //更新内容
     private void updatePlayingInfo(MusicItem item) {
         String times = Utils.convertMSecendToTime(item.duration);
         mDurationTime.setText(times);
@@ -195,6 +198,8 @@ public class MusicListActivity extends AppCompatActivity {
         mMusicSeekBar.setProgress((int) item.playedTime);
 
         mMusicTitle.setText(item.name);
+
+        mImageView.setImageBitmap(item.thumb);
     }
 
     private MusicService.OnStateChangeListenr mStateChangeListenr = new MusicService.OnStateChangeListenr() {
