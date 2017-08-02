@@ -379,6 +379,7 @@ public class MusicService extends Service {
         cv.put(DBHelper.LAST_PLAY_TIME, item.playedTime);
         cv.put(DBHelper.SONG_URI, item.songUri.toString());
         cv.put(DBHelper.ALBUM_URI, item.albumUri.toString());
+        cv.put(DBHelper.THUMB, item.thumb.toString());
         Uri uri = mResolver.insert(PlayListContentProvider.CONTENT_SONGS_URI, cv);
     }
 
@@ -389,6 +390,7 @@ public class MusicService extends Service {
         cv.put(DBHelper.LAST_PLAY_TIME, item.playedTime);
 
         String strUri = item.songUri.toString();
+
         mResolver.update(PlayListContentProvider.CONTENT_SONGS_URI, cv, DBHelper.SONG_URI + "=\"" + strUri + "\"", null);
     }
 

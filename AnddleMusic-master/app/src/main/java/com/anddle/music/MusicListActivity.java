@@ -60,6 +60,7 @@ public class MusicListActivity extends AppCompatActivity {
         mMusicListView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
         mMusicListView.setMultiChoiceModeListener(mMultiChoiceListener);
 
+
         mPlayBtn = (Button) findViewById(R.id.play_btn);
         mPreBtn = (Button) findViewById(R.id.pre_btn);
         mNextBtn = (Button) findViewById(R.id.next_btn);
@@ -77,6 +78,15 @@ public class MusicListActivity extends AppCompatActivity {
         Intent i = new Intent(this, MusicService.class);
         startService(i);
         bindService(i, mServiceConnection, BIND_AUTO_CREATE);
+
+        mImageView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MusicListActivity.this, PlayMusicView.class);
+                startActivity(intent);
+            }
+
+        });
     }
 
     @Override
