@@ -16,7 +16,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public final static String SONG_URI = "song_uri";
     public final static String ALBUM_URI = "album_uri";
     public final static String DURATION = "duration";
-    public final static String THUMB = "thumb";
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -32,8 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + LAST_PLAY_TIME +" LONG,"
                 + SONG_URI +" VARCHAR(128),"
                 + ALBUM_URI +" VARCHAR(128),"
-                + DURATION + " LONG,"
-                + THUMB + "VARCHAR(128)"
+                + DURATION + " LONG"
                 + ");" ;
         db.execSQL(PLAYLIST_TABLE_CMD);
 

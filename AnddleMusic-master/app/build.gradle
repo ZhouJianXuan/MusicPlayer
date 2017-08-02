@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.3"
 
     defaultConfig {
-        applicationId "com.anddle.anddlemusic"
+        applicationId "com.anddle.music"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
