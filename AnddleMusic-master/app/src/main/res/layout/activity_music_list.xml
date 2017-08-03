@@ -133,18 +133,18 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <FrameLayout
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start">
+        android:background="@mipmap/menu_back_03"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"
+        >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="This is menu"
-            android:textSize="30sp"
-            android:background="@mipmap/menu_back_02"
-            />
 
-    </FrameLayout>
+    </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>
