@@ -7,12 +7,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/music_2"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MusicListActivity"
+            android:name="com.anddle.music.MusicListActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,17 +22,17 @@
         </activity>
 
         <service
-            android:name=".MusicService"
+            android:name="com.anddle.music.MusicService"
             android:enabled="true"
             android:exported="true" />
 
         <provider
-            android:name=".PlayListContentProvider"
+            android:name="com.anddle.music.PlayListContentProvider"
             android:authorities="com.anddle.anddlemusicprovider"
             android:enabled="true"
             android:exported="true" />
 
-        <receiver android:name=".MusicAppWidget">
+        <receiver android:name="com.anddle.music.MusicAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -42,7 +42,7 @@
                 android:resource="@xml/anddle_music_app_widget_info" />
         </receiver>
 
-        <activity android:name=".PlayMusicView"></activity>
+        <activity android:name="com.anddle.music.PlayMusicView"></activity>
     </application>
 
 </manifest>

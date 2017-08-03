@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -51,6 +52,8 @@ public class MusicListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_music_list);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         mMusicList = new ArrayList<MusicItem>();
         mMusicListView = (ListView) findViewById(R.id.music_list);
@@ -79,6 +82,11 @@ public class MusicListActivity extends AppCompatActivity {
         startService(i);
         bindService(i, mServiceConnection, BIND_AUTO_CREATE);
 
+        Button_Click();
+    }
+
+    //按钮事件
+    public void Button_Click(){
         mImageView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -208,7 +216,6 @@ public class MusicListActivity extends AppCompatActivity {
         mMusicSeekBar.setProgress((int) item.playedTime);
 
         mMusicTitle.setText(item.name);
-
         mImageView.setImageBitmap(item.thumb);
     }
 
@@ -242,9 +249,11 @@ public class MusicListActivity extends AppCompatActivity {
         protected Void doInBackground(Object... params) {
 
             Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+            //信息
             String[] searchKey = new String[] {
                     MediaStore.Audio.Media._ID,
                     MediaStore.Audio.Media.TITLE,
+                    MediaStore.Audio.Media.ARTIST,
                     MediaStore.Audio.Albums.ALBUM_ID,
                     MediaStore.Audio.Media.DATA,
                     MediaStore.Audio.Media.DURATION
@@ -265,7 +274,7 @@ public class MusicListActivity extends AppCompatActivity {
                     String id = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID));
                     Uri musicUri = Uri.withAppendedPath(uri, id);
 
-                    String name = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
+                    String name = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE)) +"\n 歌手："+ cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
                     long duration = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
 
 

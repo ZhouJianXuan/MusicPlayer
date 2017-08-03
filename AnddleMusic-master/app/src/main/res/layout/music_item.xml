@@ -13,12 +13,13 @@
         <TextView
             android:id="@+id/music_title"
             android:layout_width="0dp"
+            android:layout_weight="3"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_margin="2dp"
             style="?android:attr/textAppearanceMedium"
-            android:lines="2"
-            android:layout_weight="2"/>
+            android:lines="2"/>
+
 
         <TextView
             android:id="@+id/music_duration"
